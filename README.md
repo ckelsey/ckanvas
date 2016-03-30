@@ -24,7 +24,7 @@ The ckanvas directive creates a canvas element that draws based on data in it's 
 
   ``offset-x`` - Optional. Offset the drawing in relation to the canvas in pixels.  
 
-  ``paths`` - Required. Data array to draw. Each array element must an object with a 'vertices' property which is an array of x and y points for a path operation.  
+  ``paths`` - Required. Data array to draw. Each array element represents a draw operation and must an object with a 'vertices' property which is an array of x and y points for a path operation. The properties property is an object that defines the styling.  
 
   ```javascript
     [
