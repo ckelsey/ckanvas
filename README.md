@@ -24,12 +24,12 @@ The ckanvas directive creates a canvas element that draws based on data in it's 
 
   ``offset-x`` - Optional. Offset the drawing in relation to the canvas in pixels.  
 
-  ``paths`` - Required. Data to draw.  
+  ``paths`` - Required. Data array to draw. Each array element must an object with a 'vertices' property which is an array of x and y points for a path operation.  
 
-  ``
+  ```javascript
     [
       {
-            properties: {} // OBJECT: canvas propeties, i.e. fillStyle, strokeStyle, etc. required for .stroke() and .fill()
+            properties: {} // OBJECT: canvas propeties, i.e. fillStyle:'#FFFFFF', strokeStyle:'#000000', etc. required for .stroke() and .fill()
             vertices:[
                 [x, y],
                 [x, y],
@@ -37,7 +37,7 @@ The ckanvas directive creates a canvas element that draws based on data in it's 
             ]
         }
     ]
-  ``
+  ```
 
   ``responsive`` - Optional. Will set the width/height of the canvas to percentages and will also listen for the directives width/height changes and redraw.  
 
