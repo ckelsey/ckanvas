@@ -40,3 +40,7 @@
   pointer-events: none;
   opacity: .5;
 }
+
+ckanvas {
+  overflow: hidden;
+}
