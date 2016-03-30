@@ -64,7 +64,7 @@
                         transformOriginY = (((canvas.height - scope.offsetY) / canvas.height) * 100) - 50;
                     }
 
-                    transformOrigin = transformOriginX +'% '+ transformOriginY +'%';
+                    var transformOrigin = transformOriginX +'% '+ transformOriginY +'%';
 
                     canvas.style.webkitTransform = transform;
                     canvas.style.webkitTransformOrigin = transformOrigin;

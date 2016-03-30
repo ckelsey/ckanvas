@@ -5,6 +5,8 @@ Canvas directive for angular.
 
 **Add to your app**  
 
+Include bower_components/ckanvas/dist/css/ckanvas.min.css and bower_components/ckanvas/dist/js/ckanvas.min.js 
+
 angular.module('app', ['cKanvas'])
 
 <br />
