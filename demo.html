@@ -1,6 +1,7 @@
 <style>
 body{
     margin: 0px;
+    font-family: sans-serif;
 }
 
 ckanvas{
@@ -12,5 +13,78 @@ ckanvas{
     background:#f5f5f5;
 }
 
+.input-group{
+    display: inline-block;
+    text-align: left;
+    width: 33%;
+}
+
+input{
+    border: none;
+    background: #eee;
+    padding: 7px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    display: inline-block;
+}
+
+textarea{
+    display: block;
+    background: #eee;
+    width: 100%;
+    height: 300px;
+    border: none;
+    font-size: 14px;
+}
+
+button{
+    background-color: #5AC5DE;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    padding: 7px 14px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px 1px #47A0B5;
+}
+
+.row{
+    margin: 21px 0px;
+}
+
+.input-container{
+    position:relative;
+    padding: 14px;
+}
+
 </style>
-<ckanvas paths="pathArray" responsive=true transform-controls=true mini-map=true></ckanvas>
+<div style="position:relative;width:100%;height:70vh;">
+    <ckanvas paths="pathArray" responsive=true transform-controls=true mini-map=true></ckanvas>
+</div>
+<div class="input-container">
+    <div class="row">
+        <input ng-model="verts" style="width:100%;" placeholder="String to convert to array">
+    </div>
+    <div class="row">
+        <div class="input-group">
+            <label>Fill color</label>
+            <input ng-model="fillStyle">
+        </div>
+        <div class="input-group">
+            <label>Stroke color</label>
+            <input ng-model="strokeStyle">
+        </div>
+        <div class="input-group">
+            <label>Line width</label>
+            <input ng-model="lineWidth">
+        </div>
+    </div>
+    <div class="row">
+        <button ng-click="verts2array(verts);updateOutput(pathArray)">Draw</button>
+    </div>
+    <div class="row">
+        <label>Output</label>
+        <textarea ng-bind="output"></textarea>
+    </div>
+    <!-- <div ng-bind="verts2array(verts)" style="width:40%;height: 300px;" placeholder="Result"></div> -->
+</div>

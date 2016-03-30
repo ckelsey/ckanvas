@@ -310,7 +310,7 @@
                     }
                 };
 
-                create(angular.copy(scope.paths));
+                if(scope.paths && scope.paths.length) create(angular.copy(scope.paths));
 
                 /* Listen for path updates */
                 scope.$watch(function(){return scope.paths}, function(n,o){

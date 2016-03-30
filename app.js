@@ -14,24 +14,39 @@ angular.module('app', [
     .otherwise({ redirectTo: '/' });
 }])
 .controller('AppCtlr', function($scope){
-/*
-function verts2array(str){
-    var result = [];
-    if(str){
-        str = str.split(';');
-        for(var i=0;i<str.length;i++){
-            var temp = str[i].split(',');
-            if(temp.length > 1){
-                result.push( [parseFloat(temp[0]), parseFloat(temp[1])] );
+    $scope.lineWidth = 1;
+    $scope.strokeStyle = '#000';
+    $scope.fillStyle = '#B5DBEF';
+    $scope.verts2array = function(str){
+        $scope.pathArray = [{
+            properties:{
+                strokeStyle: '#000',
+                lineWidth: 1,
+                fillStyle: '#B5DBEF'
+            },
+            vertices:[]
+        }];
+        if(str){
+            str = str.split(';');
+            for(var i=0;i<str.length;i++){
+                var temp = str[i].split(',');
+                if(temp.length > 1){
+                    $scope.pathArray[0].vertices.push( [parseFloat(temp[0]), parseFloat(temp[1])] );
+                }
             }
         }
-    }
-    return result;
-}
-var converted = verts2array('');
-console.log(converted);
-document.write(JSON.stringify(converted, null, '\n'));
-*/
+
+        $scope.output = JSON.stringify($scope.pathArray);
+        return $scope.pathArray;
+    };
+
+    $scope.updateOutput = function(arr){
+        $scope.output = JSON.stringify($scope.pathArray);
+        return $scope.output;
+    };
+
+    $scope.verts = '';
+    $scope.output = null;
 
     $scope.zoomFactor = 1;
     $scope.increaseZoom = function(){
@@ -236,7 +251,7 @@ document.write(JSON.stringify(converted, null, '\n'));
     //     $scope.path7
     // ];
 
-    $scope.pathArray = [
-        $scope.path3
-    ];
+    // $scope.pathArray = [
+    //     $scope.path3
+    // ];
 });
